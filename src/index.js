@@ -4,25 +4,13 @@
 module.exports = function towelSort (matrix) {
   let resultArr = [];
 
-  if (arguments[0] == null) {return []}
+  if (matrix === undefined) return resultArr;
 
-  else if (matrix.length === 0) {return []}
+  matrix.forEach((elem, index) => {
+    if (index % 2) {elem = elem.reverse();}
 
-  else {
-
-  for (i = 0; i < matrix.length; i++) {
-    if (i % 2 === 0) {
-      resultArr.push(matrix[i].join(','));
-    } else {resultArr.push(matrix[i].reverse().join(','))};
-  };
-
-  resultArr = resultArr.join(',').split(',');
-
-  resultArr.forEach(element => {
-    +element;
+    resultArr = resultArr.concat(elem);
   });
 
   return resultArr;
-  }
-
 }
